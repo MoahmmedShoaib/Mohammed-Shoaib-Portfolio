@@ -180,3 +180,12 @@ body {
   border-radius: 1.25rem;
   background: inherit;
 }
+
+/* Centered wrapper for all pages */
+.site-wrapper {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
