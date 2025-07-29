@@ -11,7 +11,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="w-full min-h-screen flex items-center bg-gradient-to-br from-[#2a0845] to-[#4f2c77] px-0 py-0 shadow-2xl shadow-black/40"
+  className="w-full flex items-center bg-gradient-to-br from-[#2a0845] to-[#4f2c77] px-0 py-16 shadow-2xl shadow-black/40"
     >
       <div className="w-full flex flex-col md:flex-row items-center md:items-center justify-center md:justify-between gap-0 md:gap-12 px-6 md:px-16 py-20 md:py-0">
         {/* Profile Image */}
