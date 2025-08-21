@@ -11,26 +11,33 @@ const About = () => {
   return (
     <section
       id="about"
-  className="w-full flex items-center bg-gradient-to-br from-[#2a0845] to-[#4f2c77] px-0 py-16 shadow-2xl shadow-black/40"
+      className="py-16 sm:py-20 w-full flex items-center justify-center px-4 sm:px-6 lg:px-8"
     >
-      <div className="w-full flex flex-col md:flex-row items-center md:items-center justify-center md:justify-between gap-0 md:gap-12 px-6 md:px-16 py-20 md:py-0">
-        {/* Profile Image */}
-        <div className="flex-shrink-0 flex justify-center md:justify-start w-full md:w-auto mb-10 md:mb-0 drop-shadow-xl">
-          <img
-            src={profileImg}
-            alt="Profile"
-            className="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover border-4 border-white/10 shadow-lg"
-            loading="lazy"
-          />
-        </div>
-        {/* About Text */}
-        <div className="w-full flex flex-col justify-center items-center text-center drop-shadow-xl py-8 px-4 md:px-10 bg-white/5 rounded-2xl" style={{ maxWidth: 600 }}>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white tracking-tight text-center">
-            About Me
-          </h2>
-          <p className="text-lg md:text-xl text-gray-200 leading-relaxed whitespace-pre-line text-center">
-            {aboutText}
-          </p>
+      <div className="container-normal">
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+          {/* Profile Image on Left */}
+          <div className="flex-shrink-0">
+            <div className="profile-frame">
+              <img
+                src={profileImg}
+                alt="Profile"
+                className="w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 xl:w-64 xl:h-64 rounded-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          </div>
+          
+          {/* About Text on Right */}
+          <div className="flex-1 text-center lg:text-left">
+            <div className="text-glass">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 lg:mb-6 text-white tracking-tight">
+                About Me
+              </h2>
+              <p className="text-sm sm:text-base lg:text-lg text-gray-200 leading-relaxed whitespace-pre-line">
+                {aboutText}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

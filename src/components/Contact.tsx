@@ -46,8 +46,8 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20">
-      <div className="container mx-auto px-6">
+    <section id="contact" className="py-16">
+      <div className="container-normal">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -56,7 +56,7 @@ const Contact = () => {
         >
           <motion.h2
             variants={itemVariants}
-            className="text-4xl md:text-5xl font-bold text-center mb-16 text-white"
+            className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-12 text-white"
           >
             Let's Connect
           </motion.h2>
@@ -64,20 +64,22 @@ const Contact = () => {
           <div className="flex justify-center">
             <motion.div
               variants={itemVariants}
-              className="glass rounded-2xl p-10 w-full max-w-xl text-center"
+              className="w-full max-w-lg text-center"
             >
-              <h3 className="text-2xl font-semibold mb-6 text-white">
-                Get in Touch
-              </h3>
-              <p className="text-gray-300 mb-8">
-                I'm always open to discussing new opportunities, interesting projects, 
-                or just having a chat about technology and innovation. Feel free to reach out!
-              </p>
-              <div className="flex items-center justify-center mb-6">
-                <MapPin className="text-gray-400 mr-3" size={20} />
-                <span className="text-gray-400">India</span>
+              <div className="text-glass mb-6">
+                <h3 className="text-lg lg:text-xl font-semibold mb-4 text-white">
+                  Get in Touch
+                </h3>
+                <p className="text-gray-300 mb-4 text-sm lg:text-base">
+                  I'm always open to discussing new opportunities, interesting projects, 
+                  or just having a chat about technology and innovation. Feel free to reach out!
+                </p>
+                <div className="flex items-center justify-center mb-4">
+                  <MapPin className="text-gray-300 mr-2" size={16} />
+                  <span className="text-gray-300 text-sm lg:text-base">India</span>
+                </div>
               </div>
-              <div className="flex justify-center space-x-8">
+              <div className="flex justify-center space-x-6">
                 {socialLinks.map((link, index) => (
                   <motion.a
                     key={index}
@@ -86,9 +88,9 @@ const Contact = () => {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
-                    className={`${link.color} transition-colors duration-200`}
+                    className="text-white hover:text-gray-300 transition-colors duration-200"
                   >
-                    {link.icon}
+                    {React.cloneElement(link.icon, { size: 24 })}
                   </motion.a>
                 ))}
               </div>

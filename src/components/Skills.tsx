@@ -6,13 +6,13 @@ const Skills = () => {
   const skillCategories = [
     {
       title: 'Programming Languages',
-      skills: ['C', 'C++', 'Python', 'Java (DSA)', 'HTML', 'CSS', 'JavaScript'],
+      skills: ['C', 'C++', 'Python', 'React', 'HTML', 'CSS', 'JavaScript'],
       color: 'from-blue-500 to-cyan-500',
       icon: <Code2 size={28} className="text-white/80" />,
     },
     {
       title: 'Frameworks & Tools',
-      skills: ['MERN Stack', 'Flask/FastAPI', 'Git & GitHub'],
+      skills: ['Flask/FastAPI', 'Git & GitHub'],
       color: 'from-purple-500 to-pink-500',
       icon: <Wrench size={28} className="text-white/80" />,
     },
@@ -24,7 +24,7 @@ const Skills = () => {
     },
     {
       title: 'Other Tools',
-      skills: ['Figma', 'Canva', 'ESP32', 'Arduino'],
+      skills: ['Figma', 'Canva', 'Arduino'],
       color: 'from-orange-500 to-red-500',
       icon: <Palette size={28} className="text-white/80" />,
     },
@@ -52,8 +52,8 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="py-20">
-      <div className="container mx-auto px-4 sm:px-6">
+    <section id="skills" className="py-16">
+      <div className="container-normal">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -62,23 +62,23 @@ const Skills = () => {
         >
           <motion.h2
             variants={itemVariants}
-            className="text-4xl md:text-5xl font-bold text-center mb-16 text-white"
+            className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-12 text-white"
           >
             Skills & Technologies
           </motion.h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {skillCategories.map((category, index) => (
               <motion.div
                 key={index}
                 variants={itemVariants}
                 whileHover={{ scale: 1.04 }}
-                className="glass rounded-2xl flex flex-col items-center justify-center p-4 sm:p-6 min-h-[220px] sm:min-h-[260px] min-w-[140px] sm:min-w-[180px] md:min-w-[220px] aspect-square mx-auto shadow-xl w-full max-w-xs"
+                className="glass-card flex flex-col items-center justify-center p-6 min-h-[200px] glass-hover"
               >
-                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/10 mb-3 flex items-center justify-center">
-                  {category.icon}
+                <div className="w-12 h-12 rounded-full bg-white/20 mb-4 flex items-center justify-center">
+                  {React.cloneElement(category.icon, { size: 24, className: "text-white" })}
                 </div>
-                <h3 className="text-lg sm:text-xl font-semibold mb-3 text-white text-center">
+                <h3 className="text-lg lg:text-xl font-semibold mb-4 text-white text-center">
                   {category.title}
                 </h3>
                 <div className="flex flex-wrap gap-2 justify-center w-full">
@@ -88,9 +88,9 @@ const Skills = () => {
                       initial={{ scale: 0.9, opacity: 0 }}
                       whileInView={{ scale: 1, opacity: 1 }}
                       transition={{ delay: skillIndex * 0.08, duration: 0.4 }}
-                      className="glass-dark rounded-full px-2 sm:px-3 py-1"
+                      className="glass-dark rounded-full px-3 py-1"
                     >
-                      <span className="text-xs sm:text-sm text-gray-300">{skill}</span>
+                      <span className="text-xs lg:text-sm text-gray-300">{skill}</span>
                     </motion.div>
                   ))}
                 </div>

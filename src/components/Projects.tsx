@@ -59,9 +59,8 @@ const Projects = () => {
   const [showNotDeployed, setShowNotDeployed] = React.useState(false);
 
   return (
-    <section id="projects" className="py-20">
-      {/* Remove bg-gray-900/50 from above line */}
-      <div className="container mx-auto px-6">
+    <section id="projects" className="py-16">
+      <div className="container-normal">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -70,84 +69,74 @@ const Projects = () => {
         >
           <motion.h2
             variants={itemVariants}
-            className="text-4xl md:text-5xl font-bold text-center mb-16 text-white"
+            className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-12 text-white"
           >
             Featured Projects
           </motion.h2>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-16">
+          <div className="grid md:grid-cols-2 gap-6 mb-12">
             {projects.map((project, index) => (
               <motion.div
                 key={index}
                 variants={itemVariants}
                 whileHover={{ scale: 1.02 }}
-                className="glass rounded-2xl p-8 hover:shadow-2xl transition-all duration-300"
+                className="glass-card p-6 glass-hover transition-all duration-300"
               >
-                <div className="w-full h-2 rounded-full bg-gray-600 mb-6"></div>
-                <h3 className="text-2xl font-bold mb-4 text-white">
+                <div className="w-full h-1 rounded-full bg-white mb-4"></div>
+                <h3 className="text-lg lg:text-xl font-bold mb-3 text-white">
                   {project.title}
                 </h3>
-                <p className="text-gray-400 mb-6">
+                <p className="text-gray-300 mb-4 text-sm lg:text-base">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag, tagIndex) => (
                     <span
                       key={tagIndex}
-                      className="px-3 py-1 bg-gray-800 rounded-full text-sm text-gray-400"
+                      className="px-2 py-1 bg-black border border-white rounded-full text-xs text-white"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
-                <div className="flex gap-4">
-                  {/* View Project Button */}
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex items-center gap-2 px-4 py-2 bg-white text-black hover:bg-gray-200 rounded-lg transition-colors"
-                    onClick={() => {
-                      // NextProject App
-                      if (project.title === 'NextProject App' && project.live) {
-                        window.open(project.live, '_blank');
-                      }
-                      // Vibe-build Agency
-                      else if (project.title === 'Vibe-build Agency' && project.live) {
-                        window.open(project.live, '_blank');
-                      }
-                      // Bus Pass Validator
-                      else if (project.title === 'Bus Pass Validator') {
-                        setShowNotDeployed(true);
-                        setTimeout(() => setShowNotDeployed(false), 2000);
-                      }
-                      // Neonexus
-                      else if (project.title.startsWith('Neonexus') && project.live) {
-                        window.open(project.live, '_blank');
-                      }
-                    }}
-                  >
-                    <ExternalLink size={16} />
-                    View Project
-                  </motion.button>
-                  {/* Code Button */}
-                  {project.code ? (
+                <div className="flex gap-3">
+                  {/* View Project Button - Hide for Bus Pass Validator */}
+                  {project.title !== 'Bus Pass Validator' && (
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="flex items-center gap-2 px-4 py-2 glass-dark rounded-lg hover:bg-gray-800 transition-colors"
+                      className="flex items-center gap-2 px-3 py-2 bg-white text-black hover:bg-gray-200 rounded-lg transition-colors text-sm"
+                      onClick={() => {
+                        // NextProject App
+                        if (project.title === 'NextProject App' && project.live) {
+                          window.open(project.live, '_blank');
+                        }
+                        // Vibe-build Agency
+                        else if (project.title === 'Vibe-build Agency' && project.live) {
+                          window.open(project.live, '_blank');
+                        }
+                        // Neonexus
+                        else if (project.title.startsWith('Neonexus') && project.live) {
+                          window.open(project.live, '_blank');
+                        }
+                      }}
+                    >
+                      <ExternalLink size={14} />
+                      View Project
+                    </motion.button>
+                  )}
+                  
+                  {/* Code Button - Hide for Neonexus */}
+                  {project.title !== 'Neonexus - Hackathon Website' && project.code && (
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="flex items-center gap-2 px-3 py-2 glass-dark rounded-lg hover:bg-gray-800 transition-colors text-sm"
                       onClick={() => window.open(project.code, '_blank')}
                     >
-                      <Github size={16} />
+                      <Github size={14} />
                       Code
                     </motion.button>
-                  ) : (
-                    <button
-                      className="flex items-center gap-2 px-4 py-2 glass-dark rounded-lg opacity-50 cursor-not-allowed"
-                      disabled
-                    >
-                      <Github size={16} />
-                      Code
-                    </button>
                   )}
                 </div>
               </motion.div>

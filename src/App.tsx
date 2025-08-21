@@ -6,6 +6,7 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
+import ContactPage from './pages/Contact';
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -40,6 +41,7 @@ function App() {
             />
             <Route path="/skills" element={<Skills />} />
             <Route path="/projects" element={<Projects />} />
+            <Route path="/contact" element={<ContactPage />} />
           </Routes>
         </div>
       </div>

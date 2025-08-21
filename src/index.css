@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,46 +18,118 @@ html {
 
 body {
   font-family: 'Inter', sans-serif;
-  background: #2a0845; /* Deep purple background */
-  color: #f3e8ff;      /* Light purple text */
+  background: url('./assets/website bg.jpg') center center/cover no-repeat fixed;
+  background-attachment: fixed;
+  color: #ffffff;      /* White text */
+  position: relative;
 }
 
-/* Custom scrollbar */
+/* Background overlay for black and white theme */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9); /* Darker black overlay */
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Custom scrollbar - Black and White */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(163, 104, 255, 0.08);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(163, 104, 255, 0.25);
+  background: rgba(255, 255, 255, 0.25);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(163, 104, 255, 0.4);
+  background: rgba(255, 255, 255, 0.4);
 }
 
-/* Glassmorphism utility classes - purple theme */
+/* Enhanced Glassmorphism utility classes - purple theme */
 .glass {
-  background: rgba(163, 104, 255, 0.08);
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(163, 104, 255, 0.18);
-  box-shadow: 0 8px 32px 0 rgba(42, 8, 69, 0.37), 0 2px 16px 0 rgba(0,0,0,0.35);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 8px 32px 0 rgba(0, 0, 0, 0.37),
+    0 2px 16px 0 rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
 }
 
 .glass-dark {
-  background: rgba(42, 8, 69, 0.45);
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(163, 104, 255, 0.10);
-  box-shadow: 0 8px 32px 0 rgba(42, 8, 69, 0.37), 0 2px 16px 0 rgba(0,0,0,0.45);
+  background: rgba(42, 8, 69, 0.3);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(163, 104, 255, 0.15);
+  box-shadow: 
+    0 12px 40px 0 rgba(42, 8, 69, 0.5),
+    0 4px 20px 0 rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 
+    0 6px 24px 0 rgba(0, 0, 0, 0.2),
+    0 1px 8px 0 rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+}
+
+.glass-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .glass-hover:hover {
-  background: rgba(163, 104, 255, 0.13);
-  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 12px 40px 0 rgba(0, 0, 0, 0.4),
+    0 4px 20px 0 rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Glass card variations */
+.glass-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 
+    0 10px 35px 0 rgba(0, 0, 0, 0.3),
+    0 3px 15px 0 rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 18px;
+}
+
+.glass-section {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 15px 50px 0 rgba(0, 0, 0, 0.4),
+    0 5px 25px 0 rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
 }
 
 /* Enhanced Starry background - dark purple stars */
@@ -188,4 +263,270 @@ body {
   margin-right: auto;
   padding-left: 2rem;
   padding-right: 2rem;
+}
+
+/* Cool black and white button for hero section */
+.cool-hero-button {
+  position: relative;
+  background: linear-gradient(45deg, #000000 0%, #333333 100%);
+  border: 2px solid #ffffff;
+  border-radius: 50px;
+  padding: 16px 32px;
+  font-weight: 600;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.3),
+    0 0 0 0 rgba(255, 255, 255, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cool-hero-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.cool-hero-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease, height 0.4s ease;
+}
+
+.cool-hero-button:hover::before {
+  left: 100%;
+}
+
+.cool-hero-button:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+.cool-hero-button:hover {
+  transform: translateY(-4px) scale(1.05);
+  background: linear-gradient(45deg, #ffffff 0%, #f0f0f0 100%);
+  color: #000000;
+  border-color: #000000;
+  box-shadow: 
+    0 15px 40px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(255, 255, 255, 0.3),
+    inset 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.cool-hero-button:active {
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Cool button for hero section (fallback) */
+.cool-button {
+  position: relative;
+  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 50px;
+  padding: 16px 32px;
+  font-weight: 600;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.cool-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.cool-button:hover::before {
+  left: 100%;
+}
+
+.cool-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+}
+
+.cool-button:active {
+  transform: translateY(-1px);
+}
+
+/* Text glassmorphism effect - smaller and centered */
+.text-glass {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Smaller container for all content */
+.container-small {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Profile image with white frame */
+.profile-frame {
+  border: 4px solid #ffffff;
+  border-radius: 50%;
+  padding: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Hero section handwritten fonts */
+.hero-greeting {
+  font-family: 'Dancing Script', cursive;
+  font-weight: 600;
+}
+
+.hero-name {
+  font-family: 'Kalam', cursive;
+  font-weight: 700;
+}
+
+.hero-title {
+  font-family: 'Caveat', cursive;
+  font-weight: 500;
+}
+
+/* Hero animations */
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-slide-left {
+  animation: slideInFromLeft 1s ease-out forwards;
+}
+
+.animate-slide-right {
+  animation: slideInFromRight 1.2s ease-out forwards;
+}
+
+.animate-fade-up {
+  animation: fadeInUp 1.4s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 1.6s ease-out forwards;
+}
+
+/* Revealing blur animation for hero text */
+@keyframes revealBlur {
+  0% {
+    filter: blur(20px);
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  50% {
+    filter: blur(10px);
+    opacity: 0.5;
+    transform: translateX(-25px);
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.reveal-blur {
+  animation: revealBlur 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.reveal-blur-delay-1 {
+  animation: revealBlur 1.5s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
+  opacity: 0;
+}
+
+.reveal-blur-delay-2 {
+  animation: revealBlur 1.5s cubic-bezier(0.4, 0, 0.2, 1) 0.6s forwards;
+  opacity: 0;
+}
+
+/* Smaller container for all devices */
+.container-normal {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .container-normal {
+    padding: 0 1rem;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-normal {
+    padding: 0 0.75rem;
+  }
 }
