@@ -26,7 +26,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen w-full flex items-center px-4 sm:px-6 lg:px-8 py-16">
+    <section className="h-screen w-full flex items-center px-4 sm:px-6 lg:px-8 py-16">
       <div className="container-normal">
         <div className="space-y-1 sm:space-y-2 lg:space-y-3 mb-6 lg:mb-8 text-center lg:text-left">
           {/* Hey! */}
